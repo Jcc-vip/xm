@@ -13,16 +13,15 @@ var reg_w = false;
 var reg_e = false;
 var reg_r = false;
 var reg_t = false;
-var reg_y = false;
 // 3 验证用户名，当失去焦点时触发事件
 reg_user.onblur = function () {
   var reg_val = this.value;
   //console.log(reg_val);
-  var reg_reg =  /^[\ \-\u4E00-\u9FA5]{4,20}$/;
+  var reg_reg = /^[\w\-\u4E00-\u9FA5]{4,20}$/;
   if(reg_reg.test(reg_val)){
     this.nextElementSibling.innerHTML = '用户名符合！';
     reg_q = true;
-  }if( reg_val == '' ){
+  }else if( reg_val == '' ){
     this.nextElementSibling.innerHTML = '用户名不能为空';
     reg_q = false;
   } else{
@@ -63,7 +62,7 @@ reg_user.onblur = function () {
       // 将密码强度追加到密码框后
       this.nextElementSibling.innerHTML = reg_str;
       reg_w = true;
-    }if(reg_pass1val == ''){
+    }else if(reg_pass1val == ''){
       this.nextElementSibling.innerHTML = '密码不能为空';
       reg_w = false;
     } else{
@@ -90,7 +89,7 @@ reg_user.onblur = function () {
     if (reg_led1.test(reg_ledval)) {
       this.nextElementSibling.innerHTML = '手机符合要求';
       reg_r = true;
-    }if(reg_ledval == '' ){
+    }else if(reg_ledval == '' ){
       this.nextElementSibling.innerHTML = '号码不能为空';
       reg_r = false
     } else {
@@ -133,8 +132,22 @@ reg_user.onblur = function () {
   
   // 注册判断
   reg_note.onclick = function (){
-   console.log(reg_c);
-   console.log(reg_code);
+  
+    //  console.log(reg_c );
+    //  console.log(reg_code.value );
+   
+    // console.log(1111111);
+    // console.log(reg_q);
+    // console.log(reg_w);
+    // console.log(reg_e);
+    // console.log(reg_r);
+    // console.log(reg_t);
+    // console.log(reg_q);
+    if(reg_q==1 && reg_w==1 && reg_e==1 && reg_r==1 &&reg_c==reg_code.value ){
+      alert("注册成功！");
+    }else{
+      alert("填写信息错误！");
+    }
   }
 
 
