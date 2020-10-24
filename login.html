@@ -107,22 +107,21 @@
             <div id="login-content">
                 <div class="login-content-title">
                     <h6>欢迎来到AnJun|DsShop</h6>
-                    <h3 id="two1" onmouseover="setContentTab(&#39;two&#39;,1,2)">卖家登录</h3>
-                    <h3 id="two2" onmouseover="setContentTab(&#39;two&#39;,2,2)" class="active">买家登录</h3>
+                    <!-- <h3 id="two1" onmouseover="setContentTab(&#39;two&#39;,1,2)">卖家登录</h3>
+                    <h3 id="two2" onmouseover="setContentTab(&#39;two&#39;,2,2)" class="active">买家登录</h3> -->
 
                 </div>
                 <!--卖家登录框-->
-                <div class="login-content-box" id="con_two_1">
+                <!-- <div class="login-content-box" id="con_two_1">
                     <div class="login-content-mid">
                         <ul>
                             <li class="date-group"><input type="text" placeholder="请输入用户名"><i><img
                                         src="images/icon/user.png" alt="" width="25" height="25"></i></li>
                             <li class="date-group"><input type="password" placeholder="请输入密码"><i><img
                                         src="images/icon/psw.png" alt="" width="30" height="30"></i></li>
-                            <li class="date-group"><input type="text" class="code" placeholder="请输入验证码"><span
-                                    style="float: right;"><img src="images/timg.jpg" height="43" width="90"
-                                        alt=""></span><i><img src="images/icon/code.png" alt="" width="30"
-                                        height="30"></i></li>
+                            <li class="date-group"><input type="text" class="code"
+                                    placeholder="请输入验证码"><span></span><i><img src="images/icon/code.png" alt=""
+                                        width="30" height="30"></i></li>
                         </ul>
 
                     </div>
@@ -134,31 +133,30 @@
                     <div class="login-bottom-btn">
                         <button type="submit">登录</button>
                     </div>
-                </div>
+                </div> -->
                 <!--卖家登录框-->
 
                 <!--买家登录框-->
                 <div id="con_two_2">
                     <div class="login-content-mid">
                         <ul>
-                            <li class="date-group"><input type="text" placeholder="请输入用户名"><i><img
+                            <li class="date-group"><input type="text" placeholder="请输入用户名" id="login_user"><i><img
                                         src="images/icon/user.png" alt="" width="25" height="25"></i></li>
-                            <li class="date-group"><input type="password" placeholder="请输入密码"><i><img
+                            <li class="date-group"><input type="password" placeholder="请输入密码" id="login_pass"><i><img
                                         src="images/icon/psw.png" alt="" width="30" height="30"></i></li>
-                            <li class="date-group"><input type="text" class="code" placeholder="请输入验证码"><span
-                                    style="float: right;"><img src="images/timg.jpg" height="43" width="90"
-                                        alt=""></span><i><img src="images/icon/code.png" alt="" width="30"
-                                        height="30"></i></li>
+                            <li class="date-group"><input type="text" class="code" placeholder="请输入验证码"
+                                    id="login_code"><span id="login_yzm">
+                                </span><i><img src="images/icon/code.png" alt="" width="30" height="30"></i></li>
                         </ul>
 
                     </div>
                     <div class="login-content-bottom">
-                        <span><a href="">注册买家帐号</a></span>
-                        <span><a>|</a></span>
-                        <span><a href="">忘记密码?</a></span>
+                        <span><a href="./reg.html">注册买家帐号</a></span>
+                        <span><a href="#">|</a></span>
+                        <span><a href="#">忘记密码?</a></span>
                     </div>
                     <div class="login-bottom-btn">
-                        <button type="submit">登录</button>
+                        <button type="submit" id="login_log">登录</button>
                     </div>
                 </div>
                 <!--买家登录框end-->
@@ -257,5 +255,9 @@
         }
     </script>
 </body>
+<script src="./js/public.js"></script>
+<script src="./js/ajax.js"></script>
+<script src="./js/login.js"></script>
+
 
 </html>

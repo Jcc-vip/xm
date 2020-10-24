@@ -29,6 +29,7 @@ reg_user.onblur = function () {
     reg_q = false;
   }
 }
+
   // 验证密码
   reg_pass1.onblur = function(){
     var reg_pass1val = this.value;
@@ -82,9 +83,10 @@ reg_user.onblur = function () {
       reg_e = false;
     }
   } 
+  
   // 验证手机号码
   reg_led.onblur = function () {
-    var reg_ledval = reg_led.value;
+    var reg_ledval = this.value;
     var reg_led1 = /^1{1}[3-9]{1}\d{9}$/;
     if (reg_led1.test(reg_ledval)) {
       this.nextElementSibling.innerHTML = '手机符合要求';
@@ -97,6 +99,7 @@ reg_user.onblur = function () {
       reg_r = false
     }
   };
+ 
   // 验证码 部分
 
   //生成验证码的文字
@@ -113,7 +116,7 @@ reg_user.onblur = function () {
   }
   var reg_c = '';
   reg_yzm.onclick = function(){
-    // 迎来存储一个随机的数字
+    // 存储一个随机的数字
     var txt='';
     var m='';
     for (var i = 0; i <= 3; i++) {
@@ -132,23 +135,29 @@ reg_user.onblur = function () {
   
   // 注册判断
   reg_note.onclick = function (){
-  
-    //  console.log(reg_c );
-    //  console.log(reg_code.value );
-   
-    // console.log(1111111);
-    // console.log(reg_q);
-    // console.log(reg_w);
-    // console.log(reg_e);
-    // console.log(reg_r);
-    // console.log(reg_t);
-    // console.log(reg_q);
+    
     if(reg_q==1 && reg_w==1 && reg_e==1 && reg_r==1 &&reg_c==reg_code.value ){
+      reg_aa ();
+      // 注册功能
+
       alert("注册成功！");
+      location.href="login.html"
+
+
     }else{
       alert("填写信息错误！");
     }
   }
 
+ var reg_aa = function (){
+  let data = 'user=' + reg_user.value + '&pass=' + reg_pass1.value + '&tel=' + reg_led.value;
+  //console.log(data);
+  axios.post('http://localhost/xm/server/reg.php', data).then(res => {
+    console.log(res);
+  })
+ }
 
-
+//  外包  还是
+// 进度 到哪里了
+//项目类型是那种
+// 前端人数招多少 已经收了多少    用的技术栈
