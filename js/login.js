@@ -45,8 +45,6 @@ login_log.onclick = function(){
     // alert('登录成功！');
     // location.href="index.html"
    }
-
-
 }
 
 

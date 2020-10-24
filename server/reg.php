@@ -19,21 +19,14 @@ $row = mysqli_fetch_assoc($res);
 //echo $row;
 //判断用户名是否存在
 if($row){
-    echo ("用户名已被占用");
+  echo 3;
 }else{
-    // 给数据库添加数据
-    $res = mysqli_query($con,"insert into reg(user,pass,tel) values('$user','$pass',$tel)");
-  //  echo ("注册成功");
-    // //判断
-    // if($res){
-    //     echo ("<script>
-    //     alert('注册成功');
-    //     location.href='reg.html';</script>");
-    // }else{
-    //     echo ("alert('注册失败请重新注册');");
-    // }
-} 
-//echo ("注册失败");
-//   echo ("<script>
-// alert('注册失败请重新注册');
-// location.href='reg.html';</script>");
+  // 给数据库添加数据
+  $res = mysqli_query($con,"insert into reg(user,pass,tel) values('$user','$pass','$tel')");
+  // 判断
+  if($res){
+      echo 1;
+  }else{
+      echo 2;
+  }
+}

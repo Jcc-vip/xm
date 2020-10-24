@@ -138,22 +138,32 @@ reg_user.onblur = function () {
     
     if(reg_q==1 && reg_w==1 && reg_e==1 && reg_r==1 &&reg_c==reg_code.value ){
       reg_aa ();
-      // 注册功能
+    //   // 注册功能
 
-      alert("注册成功！");
-      location.href="login.html"
+    //   alert("注册成功！");
+    //   location.href="login.html"
 
 
-    }else{
-      alert("填写信息错误！");
-    }
+    // }else{
+    //   alert("填写信息错误！");
+     }
   }
 
  var reg_aa = function (){
   let data = 'user=' + reg_user.value + '&pass=' + reg_pass1.value + '&tel=' + reg_led.value;
   //console.log(data);
   axios.post('http://localhost/xm/server/reg.php', data).then(res => {
-    console.log(res);
+
+    if(res==1){
+      alert('注册成功');
+      location.href="index.html";
+    }else if(res==2){
+      alert('注册失败');
+      return;
+    }else{
+      alert('用户名已存在');
+      return;
+    }
   })
  }
 
