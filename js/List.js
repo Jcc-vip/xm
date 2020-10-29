@@ -69,7 +69,7 @@ class List{
        let app = document.getElementById('goods')
       //  console.log(app);
        
-       app.innerHTML = html;
+       app.innerHTML = app.innerHTML+html;
       
       }
     })
@@ -277,9 +277,10 @@ class sort{
       </li> `
         });
         // 追加到页面中
-        let app4 = document.getElementById('goods')
+        let app4 = document.getElementById('goods');
        //  console.log(app);
-        app4.innerHTML = html;
+       app4.innerHTML += html;
+        // app4.innerHTML = app4.innerHTML+html;
        }
     })
   }
@@ -350,5 +351,79 @@ default1.onclick = function(){
   // List.id = List.getUrlParam('goodsId');
   sort.mr();
 }
+/******无限加载**********/ 
 
+//滚动条在Y轴上的滚动距离
+function getScrollTop()
+{
+　　var scrollTop = 0, bodyScrollTop = 0, documentScrollTop = 0;
+　　if(document.body){
+　　　　bodyScrollTop = document.body.scrollTop;
+　　}
+　　if(document.documentElement){
+　　　　documentScrollTop = document.documentElement.scrollTop;
+　　}
+   scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+   return scrollTop;
+}
+//文档的总高度
+function getScrollHeight(){
+  　　var scrollHeight = 0, bodyScrollHeight = 0, documentScrollHeight = 0;
+  　　if(document.body){
+  　　　　bSH = document.body.scrollHeight;
+  　　}
+  　　if(document.documentElement){
+  　　　　dSH = document.documentElement.scrollHeight;
+  　　}
+     scrollHeight = (bSH - dSH > 0) ? bSH : dSH ;
+  　　return scrollHeight;
+    }
+   //浏览器视口的高度
+   function getWindowHeight(){
+    　　var windowHeight = 0;
+    　　if(document.compatMode == "CSS1Compat"){
+    　　　　windowHeight = document.documentElement.clientHeight;
+    　　}else{
+    　　　　windowHeight = document.body.clientHeight;
+    　　}
+    　　return windowHeight;
+    }
+
+    // 实现
+    window.onscroll = function(){
+      if(getScrollTop() + getWindowHeight() >= getScrollHeight() - 0 - 1){
+        console.log(1111);
+        List.lst();
+      　　}
+      };
+      // 回到顶部
+let a = document.getElementById('btnn');
+let myTimer = null;
+//页面监听scroll事件，当发生scroll事件时就进行判断，是否需要让a标签显示
+window.addEventListener("scroll",function () {
+    //获取scroll的滚动值
+    let scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+    //console.log(scrollTop);
+    //如果大于1000px，则让a标签显示
+    if(scrollTop>500){
+        a.style.display = "block"
+    }
+    else{
+        a.style.display = "none"
+    }
+});
+//a标签点击事件，回到页面顶部
+a.onclick = function () {
+    let scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+    let speed = 30;//定义一个速度，即每隔30毫秒走多少px
+    myTimer = setInterval(function () {
+
+        document.documentElement.scrollTop = document.documentElement.scrollTop - speed;
+        //如果scroll的滚动值为0，也就是到达了页面顶部，需要停止定时器
+        if(document.documentElement.scrollTop<=0){
+            clearInterval(myTimer)
+        }
+    },30)
+}
+   
 }

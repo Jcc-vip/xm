@@ -67,7 +67,7 @@ let a = document.getElementById('btnn');
     window.addEventListener("scroll",function () {
         //获取scroll的滚动值
         let scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-        console.log(scrollTop);
+        //console.log(scrollTop);
         //如果大于1000px，则让a标签显示
         if(scrollTop>500){
             a.style.display = "block"
