@@ -19,6 +19,13 @@ body {
   width: expression(document.body.clientWidth <= 1920? "1000px": "auto");
 }
 
+#btnn {
+  position: fixed;
+  bottom: 200px;
+  right: 20px;
+  border: none;
+}
+
 .solid {
   width: 1330px;
   height: 2px;

@@ -80,7 +80,7 @@ new List();
 class sort{
   // 价格的方法
   static Event(){
-    axios.get('http://localhost/xm/server/goods.php?fn=jg',List.id)
+    axios.get('http://localhost/xm/server/goods.php?fn=jg')
     .then(res =>{
       let {
         meta,
@@ -132,7 +132,7 @@ class sort{
 
   //销量的方法
   static xl(){
-    axios.get('http://localhost/xm/server/goods.php?fn=xl',List.id)
+    axios.get('http://localhost/xm/server/goods.php?fn=xl')
     .then(res =>{
       let {
         meta,
@@ -183,7 +183,7 @@ class sort{
   }
   // 人气的方法
   static rq(){
-    axios.get('http://localhost/xm/server/goods.php?fn=rq',List.id)
+    axios.get('http://localhost/xm/server/goods.php?fn=rq')
     .then(res =>{
       let {
         meta,
@@ -234,7 +234,7 @@ class sort{
   }
   // 默认的方法
   static mr(){
-    axios.get('http://localhost/xm/server/goods.php?fn=mr',List.id)
+    axios.get('http://localhost/xm/server/goods.php?fn=mr')
     .then(res =>{
       let {
         meta,
@@ -242,7 +242,7 @@ class sort{
       } = JSON.parse(res);
       if(meta.status == 200){
         let html = '' ;
-        console.log(data);
+       // console.log(data);
         data.forEach(ele =>{
           // console.log(ele);
           let {
@@ -332,22 +332,23 @@ var default1 = document.getElementById('default1');
 
 // 价格的排序
 price.onclick = function(){
-  List.id = List.getUrlParam('goodsId');
+  // List.id = List.getUrlParam('goodsId');
   sort.Event();
 }
 // 人气的排序
 Popularity.onclick = function(){
-  List.id = List.getUrlParam('goodsId');
+  // List.id = List.getUrlParam('goodsId');
   sort.rq();
 }
 // 销量的排序
 Sales.onclick = function(){
-  List.id = List.getUrlParam('goodsId');
+  // List.id = List.getUrlParam('goodsId');
   sort.xl();
 }
 //默认的排序
 default1.onclick = function(){
-  List.id = List.getUrlParam('goodsId');
+  // List.id = List.getUrlParam('goodsId');
   sort.mr();
 }
+
 }

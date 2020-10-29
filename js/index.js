@@ -60,5 +60,32 @@ innerdiv.onmouseover = function(){
 innerdiv.onmouseout = function(){
   mytimer = setInterval(scrollUp, 50)
 }
-
-// 轮播图部分
+// 回到顶部
+let a = document.getElementById('btnn');
+    let myTimer = null;
+    //页面监听scroll事件，当发生scroll事件时就进行判断，是否需要让a标签显示
+    window.addEventListener("scroll",function () {
+        //获取scroll的滚动值
+        let scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+        console.log(scrollTop);
+        //如果大于1000px，则让a标签显示
+        if(scrollTop>500){
+            a.style.display = "block"
+        }
+        else{
+            a.style.display = "none"
+        }
+    });
+    //a标签点击事件，回到页面顶部
+    a.onclick = function () {
+        let scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+        let speed = 30;//定义一个速度，即每隔30毫秒走多少px
+        myTimer = setInterval(function () {
+    
+            document.documentElement.scrollTop = document.documentElement.scrollTop - speed;
+            //如果scroll的滚动值为0，也就是到达了页面顶部，需要停止定时器
+            if(document.documentElement.scrollTop<=0){
+                clearInterval(myTimer)
+            }
+        },30)
+    }
