@@ -320,19 +320,33 @@ body {
 }
 .main-bottom-case {
   width: 900px;
-  height: 230px;
+  height: 200px;
   margin-top: 5px;
-}
-.main-bottom-case ul li {
-  float: left;
   overflow: hidden;
 }
-.main-bottom-case ul li img {
-  transition: all 0.6s;
-  width: 225px;
+.main-bottom-case #innerdiv {
+  float: left;
+  width: 1100%;
+  overflow: hidden;
   height: 126px;
 }
-.main-bottom-case ul li img:hover {
+/* .main-bottom-case ul {
+  display: block;
+} */
+.main-bottom-case #innerdiv #index_one {
+  float: left;
+  margin: 0px 5px;
+}
+.main-bottom-case #innerdiv #index_two {
+  float: left;
+  /* margin: 0px 5px; */
+}
+.main-bottom-case img {
+  transition: all 0.6s;
+  width: 220px;
+  height: 126px;
+}
+.main-bottom-case img:hover {
   transform: scale(1.2);
 }
 .login-box {
@@ -390,14 +404,20 @@ body {
   border-left: none;
 }
 .log-main .log-go {
+  cursor: pointer;
   width: 180px;
   height: 30px;
   background-color: #f5a700;
-  border: none;
+  border: 0;
+  outline: none;
+  /* border: 0px; */
   margin-top: 10px;
   border-radius: 5px;
   color: #ffffff;
   margin-left: 5px;
+}
+.log-main .log-go a {
+  color: white;
 }
 .log-list {
   width: 191px;
@@ -494,6 +514,7 @@ body {
   height: 350px;
   background-color: #ffffff;
   float: left;
+  overflow: hidden;
   margin-top: 15px;
   margin-left: 15px;
   box-shadow: 2px 0 4px #d5d5d5;
@@ -531,14 +552,18 @@ body {
   height: 50px;
 }
 .products-title2 {
-  width: 240px;
-  height: 35px;
+  height: 45px;
   padding-left: 10px;
   margin-top: 5px;
+  overflow: hidden;
+  /* text-align: center;
+  margin: 0 auto; */
 }
 .products-title2 a {
   color: #000000;
-  font-size: 14px;
+  font-size: 13px;
+  text-align: center;
+  margin: 0 auto;
 }
 .products-title2 a:hover {
   color: #f5a700;
@@ -2000,6 +2025,10 @@ body {
   border-radius: 5px;
   margin-left: 26px;
   opacity: 0.5;
+}
+.botBox ul li img {
+  width: 54px;
+  height: 54px;
 }
 .bord {
   border-color: #e4393c !important;

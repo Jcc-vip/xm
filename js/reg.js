@@ -156,7 +156,7 @@ reg_user.onblur = function () {
 
     if(res==1){
       alert('注册成功');
-      location.href="index.html";
+      location.href="login.html";
     }else if(res==2){
       alert('注册失败');
       return;

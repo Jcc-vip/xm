@@ -3,7 +3,7 @@
 function con(){
 //1 连接
 // @ 警告抑制符
-$link = @mysqli_connect('127.0.0.1','root','root','xm');
+$link = @mysqli_connect('127.0.0.1','root','root','test');
 // 判断连接状态,连接失败返回false
 //var_dump($link)
 if(!$link){
@@ -33,4 +33,5 @@ function select($sql){
   }
   return $arr;
 }
+
 ?>
