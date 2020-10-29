@@ -42,7 +42,7 @@ class Cart{
           <td class="cart-goods"><img src="${t1}" alt="" /><span><a href=""
                       class="cart-goods-link">${goodsName}</a></span></td>
           <td class="price">${price}</td>
-          <td class="count"><span class="reduce"></span><input class="count-input" type="text"
+          <td class="count"><span class="reduce" onclick ="Cart.redGoodsNum(this,${id})">-</span><input class="count-input" type="text"
                   value="${goodsId[id]}" /><span class="add" onclick="Cart.addGoodsNum(this,${id})">+</span></td>
           <td class="subtotal">${(goodsId[id] * price).toFixed(2)}</td>
           <td class="operation"><span class="delete" onclick = "Cart.delGoods(this,${id})">删除</span></td>
@@ -168,6 +168,41 @@ class Cart{
         // 更新数量和统计
         Cart.goodsCount();
        }
+
+       static redGoodsNum(that,id){
+        // 设置延时器,防止过快点击，500ms点一次
+        if(!Cart.clickStatus) return;
+        Cart.clickStatus = false;
+        setTimeout(() =>{
+          Cart.clickStatus = true;
+        },500);
+        //console.log(that);
+        // 获取原有的数量
+        let numObj = that.nextElementSibling;// 返回上一个列表选项的 HTML 内容：
+        let num = numObj.value - 0; // 获取到数量的内容
+       //  console.log(that);
+       //  console.log(num);
+       
+       num--;
+       if(num < 1)return;
+       numObj.value = num ;
+       console.log(num);
+
+      // console.log(num);
+       //更新loca中的商品数量
+       let cartGoods = JSON.parse(localStorage.getItem('cart'));
+       cartGoods[id] = num;
+       // console.log(caetGoods[id]);
+       // 重新设置local的信息
+       localStorage.setItem('cart',JSON.stringify(cartGoods));
+       // 更新小计
+       let trObj = that.parentNode.parentNode;
+       // 获取价格
+       let oneP = trObj.getElementsByClassName('price')[0].innerHTML;
+       trObj.getElementsByClassName('subtotal')[0].innerHTML=(oneP*num).toFixed(2);
+       // 更新数量和统计
+       Cart.goodsCount();
+      }
        /********删除的实现********/
        static delGoods(that,id){
          // 1 删除tr
